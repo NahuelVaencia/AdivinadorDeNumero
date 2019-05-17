@@ -15,6 +15,10 @@ public class AdivinadorNumero {
         GenerarNumero n = new GenerarNumero();
         numeroAleatorio = n.generarNumero(CANT_DIGITOS);
         
+        //Creo un Objeto Partcipante para comenzar a interactuar con el usuario
+        ParticipanteH p = new ParticipanteH();
+        p.ingresarNumero(numeroAleatorio);
+        
     }
     
 }
