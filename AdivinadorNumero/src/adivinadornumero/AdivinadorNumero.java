@@ -1,6 +1,7 @@
 package adivinadornumero;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AdivinadorNumero {
     /*
@@ -12,12 +13,16 @@ public class AdivinadorNumero {
     
     public static void main(String[] args) throws InterruptedException {
         //Creo objeto para poder generar el número a adivinar (aleatorio)
-        GenerarNumero n = new GenerarNumero();
+       /* GenerarNumero n = new GenerarNumero();
         numeroAleatorio = n.generarNumero(CANT_DIGITOS);
         
-        //Creo un Objeto Partcipante para comenzar a interactuar con el usuario
+        //Creo un Objeto PartcipanteH para comenzar a interactuar con el usuario
         ParticipanteH p = new ParticipanteH();
         p.ingresarNumero(numeroAleatorio);
+        */
+        //Creo un Objeto ParticipanteM para comenzar a interaactuar con la máquina
+        ParticipanteM pm = new ParticipanteM(CANT_DIGITOS);
+        numeroAleatorio = pm.crearNumero();
         
     }
     
