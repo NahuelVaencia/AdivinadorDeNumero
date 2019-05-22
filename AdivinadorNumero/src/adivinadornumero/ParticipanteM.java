@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ParticipanteM {
+public class ParticipanteM{
 
     /*
     cantDigito: entero donde se almacena la cantidad de dígitos que tiene el númnero
