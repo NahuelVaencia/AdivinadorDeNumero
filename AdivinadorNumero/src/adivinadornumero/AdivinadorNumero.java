@@ -49,6 +49,7 @@ public class AdivinadorNumero {
                 ParticipanteM pm = new ParticipanteM(CANT_DIGITOS);
                 numeroAleatorio = pm.crearNumero();
 
+                pm.adivinar(numeroAleatorio);
                 break;
         }
 
