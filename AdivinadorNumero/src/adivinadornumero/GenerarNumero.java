@@ -10,7 +10,7 @@ public class GenerarNumero {
     
     //METODO PARA GENERAR EL NÚMERO ALEATORIO
     public ArrayList<Integer> generarNumero(int cantDigitos) throws InterruptedException{
-        System.out.println("Generando un numero de 4 digitos para que usted lo adivine. Por favor aguarde");
+        System.out.println("\nGenerando un numero de 4 digitos para que usted lo adivine. Por favor aguarde");
         Thread.sleep(1000);
         
         /*

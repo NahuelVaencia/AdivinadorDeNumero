@@ -8,7 +8,6 @@ public class ParticipanteM {
 
     /*
     cantDigito: entero donde se almacena la cantidad de dígitos que tiene el númnero
-    numAleatorio: array con los dígtos del número
     numSiguiente: array con los dígitos del número
     numero: valor del npumero que se está evaluando en un momento determinado. Es entero
     numeroString: variable para poder mostrar todos los digitos del número cuando el mismo
@@ -17,15 +16,14 @@ public class ParticipanteM {
     tiene valores repetidos o no (true = valores repetidos/false = valores no repetidos)
      */
     int cantDigito;
-    ArrayList<Integer> numAleatorio = new ArrayList<>();
     ArrayList<Integer> numSiguiente = new ArrayList<>();
     int numero;
     String numeroString;
     boolean repetidos = false;
-    
+
     /*
     sc: Objeto para poder leer lo ingresado por teclado
-    */
+     */
     Scanner sc = new Scanner(System.in);
 
     /*
@@ -45,6 +43,8 @@ public class ParticipanteM {
     para preguntar al usuario
      */
     public ArrayList<Integer> crearNumero() throws InterruptedException {
+        //numAleatorio: array con los dígtos del número
+        ArrayList<Integer> numAleatorio;
         /*
         Creación de un objeto GeneradorDeNumero, para posteriormente llamar al
         metodo que crea el número
@@ -77,7 +77,7 @@ public class ParticipanteM {
         numero = convertirInt(numAleat);
         numeroString = convertirString(numAleat);
 
-        System.out.println("\nEL NUMERO QUE POSIBLEMENTE PENSÓ ES " + numeroString);
+        System.out.println("\n-----EL NUMERO QUE POSIBLEMENTE PENSÓ ES " + numeroString + "------");
 
         System.out.println("¿Cuántos dígitos están en su ubicación?");
         try {
@@ -87,7 +87,10 @@ public class ParticipanteM {
             System.out.println("-----------------------------------");
             System.out.println("INGRESE SOLO NUMEROS POR FAVOR");
             System.out.println("-----------------------------------\n");
+            adivinar(numAleat);
         }
+
+        controlarOpcion(cantBien, numAleat);
 
         System.out.println("¿Cuántos dígitos estan en el número pero no en su posición correcta?");
         try {
@@ -97,7 +100,10 @@ public class ParticipanteM {
             System.out.println("-----------------------------------");
             System.out.println("INGRESE SOLO NUMEROS POR FAVOR");
             System.out.println("-----------------------------------\n");
+            adivinar(numAleat);
         }
+
+        controlarOpcion(cantRegular, numAleat);
 
         /*Una vez ingresada la respuesta la coloco en un arreglo. De esta forma,
         para el número preguntado tengo una respuesta específica. 
@@ -119,6 +125,22 @@ public class ParticipanteM {
         //Verificar respuestas anteriores
         compararValorAnterior(numSiguiente);
 
+    }
+
+    public void controlarOpcion(int r, ArrayList<Integer> numAleat) {
+
+        if (r < 0) {
+            System.out.println("---Ingrese un valor positivo---");
+            adivinar(numAleat);
+        } else {
+            if (r > cantDigito) {
+                System.out.println("---Ingrese una valor que este en en rango de"
+                        + " 0 a " + cantDigito + "---");
+                adivinar(numAleat);
+            }
+        }
+
+        
     }
 
     /*
@@ -204,16 +226,15 @@ public class ParticipanteM {
             do {
                 numero = incrementarAdivinar(numero);
                 numSiguiente = convertirArray(numero);
-                
+
                 repetidos = verificarRepetidos(numSiguiente);
 
             } while (repetidos == true);
-            
+
             /*
             Salida para comprobar que va evaluando todos los números incrementando de a uno
-            */
+             */
             //System.out.println("El siguiente sin repetidos es " + numSiguiente);
-            
             /*
             Por cada uno de los números ya preguntados, verifico si el siguiente
             generado cumple con las condiciones (respuestas) ingresadas por el
@@ -255,12 +276,12 @@ public class ParticipanteM {
             /*
             Mientras no cumpla las condiciones incremento el número, hasta que esto
             se cumpla
-            */
+             */
         } while ((preguntados.get(clave)).get(0) != bien || (preguntados.get(clave)).get(1) != regular);
 
         /*
         Cuando cumple las condiciones, le pregunta al usuario si es el número
-        */
+         */
         adivinar(numSiguiente);
 
     }

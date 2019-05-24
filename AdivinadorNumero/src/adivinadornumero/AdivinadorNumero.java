@@ -12,25 +12,16 @@ public class AdivinadorNumero {
     private static final int CANT_DIGITOS = 4;
     private static ArrayList<Integer> numeroAleatorio;
     private static Scanner sc = new Scanner(System.in);
+    private static int respuesta;
 
     public static void main(String[] args) throws InterruptedException {
-        int respuesta = 0;
+        
         System.out.println("----------BIENVENIDO----------\n");
         System.out.println("Ingrese el número de la opción del juego que quiere jugar");
         System.out.println("   1. Adivinar un número de 4 cifras");
         System.out.println("   2. Pensar un número de 4 cifras y que éste sea adivinado");
-
-        respuesta = sc.nextInt();
-
-        while (respuesta <= 0) {
-            System.out.println("---Ingrese el número de una de las opciones listadas anteriormente---");
-            respuesta = sc.nextInt();
-        }
-
-        while (respuesta > 2) {
-            System.out.println("---Ingrese el número de una de las opciones listadas anteriormente---");
-            respuesta = sc.nextInt();
-        }
+        
+        respuesta = controlarOpcion();
 
         switch (respuesta) {
             case 1:
@@ -52,6 +43,33 @@ public class AdivinadorNumero {
                 break;
         }
 
+    }
+
+    /*
+    Metodo para controlar que los valores ingresados sean solamente 1 o 2, correspondiente
+    a las opciones de juego
+    */
+    private static int r;
+    public static int controlarOpcion() {
+        boolean salida = true;
+        
+        try{
+            r = Integer.parseInt(sc.nextLine());
+        }catch(NumberFormatException e){
+            System.out.println("---Ingrese el número de una de las opciones listadas anteriormente---");
+            controlarOpcion();
+            
+        }
+        
+        do {
+            if(r<=0 || r>2){
+                System.out.println("---Ingrese el número de una de las opciones listadas anteriormente---");
+                controlarOpcion();
+            }else{
+                salida = false;
+            }
+        } while (salida==true);
+        return r;
     }
 
 }
