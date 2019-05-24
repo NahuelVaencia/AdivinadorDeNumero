@@ -1,7 +1,6 @@
 package adivinadornumero;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AdivinadorNumero {
@@ -10,9 +9,9 @@ public class AdivinadorNumero {
     CANT_DIGITOS: constante con la cantidad de dígitos que tiene que tener el número
     numeroAleatorio: Array para guardar los dígitos del número generado
      */
-    public static final int CANT_DIGITOS = 4;
-    public static ArrayList<Integer> numeroAleatorio;
-    public static Scanner sc = new Scanner(System.in);
+    private static final int CANT_DIGITOS = 4;
+    private static ArrayList<Integer> numeroAleatorio;
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
         int respuesta = 0;
