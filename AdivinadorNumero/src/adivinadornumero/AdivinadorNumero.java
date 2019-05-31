@@ -35,6 +35,8 @@ public class AdivinadorNumero {
 
                 break;
             case 2:
+                System.out.println("\nPiense un número de "+CANT_DIGITOS+" dígitos, donde éstos no se repitan");
+                Thread.sleep(7000);
                 //Creo un Objeto ParticipanteM para comenzar a interaactuar con la máquina
                 ParticipanteM pm = new ParticipanteM(CANT_DIGITOS);
                 numeroAleatorio = pm.crearNumero();

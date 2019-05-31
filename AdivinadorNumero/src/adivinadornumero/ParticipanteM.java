@@ -90,6 +90,19 @@ public class ParticipanteM {
             adivinar(numAleat);
         }
 
+        if (cantBien == cantDigito) {
+            System.out.println("       JUEGO TERMINADO       ");
+            System.out.println("-----------------------------");
+            System.out.println("-----------------------------");
+            System.out.println("------TU NÚMERO ES " + numero +"------");
+            System.out.println("-----------------------------");
+            System.out.println("-----------------------------");
+            System.exit(0);
+        }
+        /*
+        Llamo al método que controla que el valor ingresado esté entre el
+        rango 0-cantDigitos
+         */
         controlarOpcion(cantBien, numAleat);
 
         System.out.println("¿Cuántos dígitos estan en el número pero no en su posición correcta?");
@@ -103,6 +116,10 @@ public class ParticipanteM {
             adivinar(numAleat);
         }
 
+        /*
+        Llamo al método que controla que el valor ingresado esté entre el
+        rango 0-cantDigitos
+         */
         controlarOpcion(cantRegular, numAleat);
 
         /*Una vez ingresada la respuesta la coloco en un arreglo. De esta forma,
@@ -117,16 +134,15 @@ public class ParticipanteM {
         preguntados.put(numAleat, resp);
         //System.out.println(preguntados);
 
-        if (cantBien == cantDigito) {
-            System.out.println("Ganeee");
-            System.exit(0);
-        }
-
         //Verificar respuestas anteriores
         compararValorAnterior(numSiguiente);
 
     }
 
+    /*
+    Controla si los valores ingresados por el usuarios sean enteros positivos
+    y que no sea mayor a la cantidad de dígits que tiene el número
+     */
     public void controlarOpcion(int r, ArrayList<Integer> numAleat) {
 
         if (r < 0) {
@@ -140,7 +156,6 @@ public class ParticipanteM {
             }
         }
 
-        
     }
 
     /*
